@@ -1,0 +1,230 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color:#e4b484;
+    background-image: url('../img/beuken.png');
+    background-size: 50%;
+}
+
+@font-face {
+    font-family: fryventure;
+    src: url('../fonts/Fry-Regular.ttf') format('truetype');
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #af7e4c;
+}
+
+.logo {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 64px;
+    width: auto;
+    display: none;
+}
+
+.paper {
+    background-image: url(../img/paper.png);
+    background-repeat: no-repeat;
+    background-color: white;
+    background-size: 100%;
+    position: relative;
+    width: 420px;
+    min-height: 594px;
+    height: fit-content;
+    margin: auto;
+    margin-top: 64px;
+    margin-bottom: 64px;
+    font-family: fryventure;
+    text-align: center;
+    padding-bottom: 20px;
+    filter: drop-shadow(10px 10px 4px #00000050);
+}
+
+
+.extras {
+    background-image: url(../img/paper.png);
+    background-repeat: no-repeat;
+    background-color: white;
+    background-size: 100%;
+    position: absolute;
+    top: 0;
+    width: 300px;
+    min-height: 120px;
+    height: fit-content;
+    padding-bottom: 20px;
+    font-family: fryventure;
+    text-align: center;
+    padding: 20px;
+    filter: drop-shadow(10px 10px 4px #00000050);
+}
+
+#add-activity {
+    margin-left: 450px;
+}
+
+#log-in {
+    margin-left: 450px;
+    margin-top: 200px;
+}
+
+h1 {
+    font-size: 48px;
+    padding-top: 25px;
+    padding-bottom: 3px;
+    color: #16264C;
+}
+
+.activity {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    height: fit-content;
+    margin-bottom: 32px;
+}
+
+h2 {
+    color: #16264C;
+    margin: 0;
+}
+
+.delete {
+    image-rendering: pixelated;
+    position: absolute;
+    right: 420px; /* Adjust this value to move it outside the div */
+    top: -11px; /* You can also use the 'top' property to adjust vertical position */
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+
+.number {
+    position: absolute;
+    left: 12px;
+    top: 0;
+    width: 32px;
+    overflow-wrap: anywhere;
+}
+
+.content {
+    position: relative;
+    width: 320px;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    image-rendering: auto;
+    height: 25px;
+    width: 50px;
+    cursor: pointer;
+}
+
+.dates {
+    margin: 0px 0px -13px 0px;
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.activity:hover .dates {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.location {
+    margin: 10px 0px -13px 0px;
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.activity:hover .location {
+    opacity: 1;
+    transform: translateY(-22px);
+}
+
+.copyright-text {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 1px;
+    font-size: 12px;
+}
+
+.tm {
+    font-size: 5px;
+}
+
+.title {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+.login-btn {
+    position: absolute;
+    height: 32px;
+    width: 64px;
+    top: 0;
+    right: 0;
+    margin: 20px;
+    padding: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.login-btn:active {
+    background: rgb(234, 234, 234);
+}
+
+/* LOGIN */
+
+.username {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 32px;
+    width: 180px;
+    font-size: 16px;
+    color:rgb(0, 0, 0);
+    border-radius: 10px;
+}
+
+textarea:focus, input:focus{
+    background: rgb(234, 234, 234);
+}
+
+input {
+    padding-left: 12px;
+}
+
+#submit {
+    height: 32px;
+    width: 48px;
+    font-size: 16px;
+    color:rgb(0, 0, 0);
+    border-radius: 10px;
+}
+
+#submit:hover {
+    background: rgb(234, 234, 234);
+}
+
+#submit:active {
+}
