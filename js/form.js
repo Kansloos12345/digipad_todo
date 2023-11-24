@@ -46,27 +46,15 @@ async function createNewActivity()
 }
 
 async function deleteActivity(id) {
-    // Display a confirmation dialog
-    const userConfirmed = window.confirm("Weet je zeker?");
+    var requestOptions = {
+        method: 'DELETE',
+        redirect: 'follow'
+    };
 
-    // Check if the user confirmed the action
-    if (userConfirmed) {
-        var requestOptions = {
-            method: 'DELETE',
-            redirect: 'follow'
-        };
-
-        await fetch("http://localhost/digipad_todo/api/?id=" + id, requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
-
-        // Refresh page
-        window.location.href = "index.php";
-    } else {
-        // User canceled the delete action
-        console.log("Delete action canceled");
-    }
+    await fetch("http://localhost/digipad_todo/api/?id=" + id, requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
 }
 
 async function activityDone(id) {
@@ -79,7 +67,4 @@ async function activityDone(id) {
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
-
-    // refresh page
-    window.location.href = "index.php";
 }

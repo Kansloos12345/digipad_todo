@@ -31,9 +31,5 @@ switch($cmd) {
     case 'get':
         getSingleActivity();
         break;
-    
-    // case 'patch':
-    //     patchActivity();
-    //     break;
 }
 

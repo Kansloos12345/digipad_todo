@@ -13,9 +13,10 @@ async function getActivities() {
         }
 
         activities = await response.json();
+        activities.sort((a, b) => a.id - b.id); // Sort activities by id
         generateActivityHTML();
 
-        console.log('Activities:', activities); // Add this line to log the activities to the console
+        console.log('Activities:', activities);
     } catch (error) {
         console.error('Error fetching data:', error);
     }
@@ -24,7 +25,8 @@ async function getActivities() {
 function generateActivityHTML(activity) {
     const imgSrc = activity.done === '1' ? 'img/krul.png' : 'img/cross.png';
     const finishedAtInfo = activity.finished_at ? `Afgemaakt op: ${activity.finished_at}` : '';
-    const deleteButton = activity.done === '1' ? `<button id="${activity.id}" ondblclick="deleteActivity(this.id)" class="delete" style="background-image: url('img/trash.png'); border:none; background-repeat:no-repeat;background-size:100% 100%;"></button>` : '';
+    const deleteButtonStyle = activity.done === '1' ? '' : 'style="display:none;"';
+    const deleteButton = `<button id="${activity.id}" ondblclick="deleteActivity(this.id)" class="delete" ${deleteButtonStyle} style="background-image: url('img/trash.png'); border:none; background-repeat:no-repeat;background-size:100% 100%;"></button>`;
 
     return `
         <div class="activity">
@@ -33,9 +35,15 @@ function generateActivityHTML(activity) {
             <h2 class="content">${activity.task}
                 <h6 class="dates">Toegevoegd op: ${activity.created_at}. ${finishedAtInfo}</h6>
             </h2>
-            <button id="${activity.id}" onclick="activityDone(this.id)" class="icon" style="border:none; background-image: url('${imgSrc}'); background-repeat:no-repeat; background-size:contain; background-position:center;"></button>
+            <button id="${activity.id}" onclick="joinedButtonClick(${activity.id}, this)" class="icon" style="border:none; background-image: url('${imgSrc}'); background-repeat:no-repeat; background-size:contain; background-position:center;"></button>
         </div>
     `;
+}
+
+function joinedButtonClick(id, imgElement) {
+    activityDone(id);
+    changeImage(imgElement);
+    toggleDeleteButton(imgElement);
 }
 
 // Function to display activities in the container
